@@ -1,0 +1,29 @@
+<section class="property-binding">
+
+    <article>
+        <h3>Interpolation/Interpolação</h3>
+
+        <p> String renderizada com interpolação: {{ url }}</p> <!-- strings simples-->
+        <p> Resultado de 1 + 1 é: {{ 1 + 1 }}</p> <!-- Expressões matemáticas-->   
+        <p> Resultado de 1 + 1  não é {{ 1 + 1 + getValor() }}</p> <!--Métodos-->                     
+        <p> Curso de Angular e gosto do curso {{ cursoAngular && getCurtirCurso() }}</p> <!--Expressões lógicas-->
+    </article>
+
+    <article>
+        <h3>Property Binding</h3>
+
+        <img src="{{ urlImagem }}" >  <!-- primeiro método: interpolação -->
+        <img [src]="urlImagem" >      <!-- segundo método: property binding -->
+        <img bind-src="urlImagem" >      <!-- mesma coisa da linha anterior -->
+    </article>
+
+</section>
+
+<!--
+    PROPERTY BINDING
+
+    - Valor do Component para o Template
+    - Usa-se colchetes <img[src]='urlImg'/>
+    - Formato padrão é através de bind-nomePropriedade <img bind-src='urlImg'/>
+    - Quando NÃO existe uma propriedade no elemento, usa-se [attr.colspan]
+-->
