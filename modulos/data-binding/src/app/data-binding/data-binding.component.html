@@ -17,6 +17,105 @@
         <img bind-src="urlImagem" >      <!-- mesma coisa da linha anterior -->
     </article>
 
+    <article>
+        <h3>Class e Style Binding</h3>
+
+        <div>
+             <!--Class Binding<-->
+            Selecione uma classe:
+            <select #classe (change) = "0">
+                <option value="alert-success">Sucesso</option>
+                <option value="alert-info">Info</option>
+                <option value="alert-warning">Alerta</option>
+                <option value="alert-danger">Erro</option>
+            </select>
+
+            <br><br>
+
+            <div class="alert {{ classe.value }} " role="alert">Texto colorido conforme o valor do combobox</div>
+
+            <div class="alert" role="alert"
+                [class.alert-success] = "classe.value == 'alert-success'">
+                A simple success alert—check it out!
+            </div>
+            <div class="alert" role="alert"
+                [class.alert-info] = "classe.value == 'alert-info'">
+                A simple info alert—check it out!
+            </div>
+            <div class="alert" role="alert"
+                [class.alert-warning] = "classe.value == 'alert-warning'">
+                A simple warning alert—check it out!
+            </div>
+            <div class="alert" role="alert"
+                [class.alert-danger] = "classe.value == 'alert-danger'">
+                A simple danger alert—check it out!
+            </div>
+
+            <!--Style Binding<-->
+            <div class="alert alert-danger" role="alert" 
+                [style.display] = "classe.value == 'alert-danger' ? 'block' : 'none' ">
+                Esse texto somente aparece em caso de erro.
+            </div>
+
+        </div>
+    </article>
+
+    <article>
+        <h3>Event Binding</h3>
+
+        <div>
+            <button (click)= "botaoClicado()"
+            class = "btn btn-primary">Me clique</button>
+
+            <br><br>
+
+            <input type= "text"
+                (keyup) = "onkeyUp($event)"
+                (keyup.enter) = "salvarValor(campoInput.value)"
+                (bluer) = "salvarValor(campoInput.value)"
+                #campoInput />
+
+            <p>Valor atual: {{ valorAtual }}</p>
+            <p>Valor salvo: {{ valorSalvo }}</p>
+
+            <br><br>
+
+            <span 
+                (mouseover) ="onMouseOverOut()"
+                (mouseout) ="onMouseOverOut()"
+                [class.highlight] = 'isMouseOver'
+            >Passe o mouse sobre mim
+            </span>
+
+            <br><br>
+
+        </div>
+    </article>
+
+    <article>
+        <h3>Two-way data binding</h3>
+        <!--O uso do ngModel só é possível se o FormsModule for importado e declarado no app.module ou no módulo onde está sendo utilizado -->
+
+        <div>
+            <input type="text"
+                [ngModel] = "nome"
+                (ngModelChange) = "nome = $event"
+            />
+
+            <input type="text" [(ngModel)]="nome" > <!--Sintaxe banana na caixa -->
+            <input type="text" bindon-ngModel = "nome"> 
+
+            <p>Você digitou o nome: {{ nome }}</p>
+        </div>
+
+        <div>
+            <p>Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de idade.</p>
+            <input type="text" [(ngModel)] = "pessoa.nome">
+            <input type="text" [(ngModel)] = "pessoa.idade">
+        </div>
+
+    </article>
+
 </section>
 
 <!--
