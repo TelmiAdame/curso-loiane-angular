@@ -17,6 +17,15 @@
         <img bind-src="urlImagem" >      <!-- mesma coisa da linha anterior -->
     </article>
 
+<!--
+    PROPERTY BINDING
+
+    - Valor do Component para o Template
+    - Usa-se colchetes <img[src]='urlImg'/>
+    - Formato padrão é através de bind-nomePropriedade <img bind-src='urlImg'/>
+    - Quando NÃO existe uma propriedade no elemento, usa-se [attr.colspan]
+-->
+
     <article>
         <h3>Class e Style Binding</h3>
 
@@ -116,13 +125,17 @@
 
     </article>
 
+    <br><br>
+
+    <section class="input-output-properties">
+
+        <article>
+            <h3>Input/Output Properties</h3>
+
+            <app-curso [nome] = "nomeDoCurso"></app-curso>
+        </article>
+
+    </section>
+
 </section>
 
-<!--
-    PROPERTY BINDING
-
-    - Valor do Component para o Template
-    - Usa-se colchetes <img[src]='urlImg'/>
-    - Formato padrão é através de bind-nomePropriedade <img bind-src='urlImg'/>
-    - Quando NÃO existe uma propriedade no elemento, usa-se [attr.colspan]
--->
